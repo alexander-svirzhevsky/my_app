@@ -1,13 +1,13 @@
-import { Configuration } from "mini-css-extract-plugin";
-import { BuildOptions } from "./types";
+import {Configuration} from 'mini-css-extract-plugin';
+import {BuildOptions} from './types';
 
 export const buildResolvers = (
-  options: BuildOptions
-): Configuration["resolve"] => {
+  options: BuildOptions,
+): Configuration['resolve'] => {
   return {
-    extensions: [".tsx", ".ts", ".js"],
+    extensions: ['.tsx', '.ts', '.js'],
     alias: {
-      "@": options.paths.src,
+      '@': options.paths.src,
     },
   };
 };

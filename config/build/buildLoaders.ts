@@ -1,21 +1,21 @@
-import { ModuleOptions } from "webpack";
-import MiniCssExtractPlugin from "mini-css-extract-plugin";
-import ReactRefreshTypeScript from "react-refresh-typescript";
-import { BuildOptions } from "./types";
+import {ModuleOptions} from 'webpack';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import ReactRefreshTypeScript from 'react-refresh-typescript';
+import {BuildOptions} from './types';
 
-export const buildLoaders = (options: BuildOptions): ModuleOptions["rules"] => {
-  const isDev = options.mode === "development";
+export const buildLoaders = (options: BuildOptions): ModuleOptions['rules'] => {
+  const isDev = options.mode === 'development';
 
   const assetLoader = {
     test: /\.(png|svg|jpg|jpeg|gif)$/i,
-    type: "asset/resource",
+    type: 'asset/resource',
   };
 
   const cssLoaderWithModules = {
-    loader: "css-loader",
+    loader: 'css-loader',
     options: {
       modules: {
-        localIdentName: isDev ? "[path][name]__[local]" : "[hash:base64:8]",
+        localIdentName: isDev ? '[path][name]__[local]' : '[hash:base64:8]',
       },
     },
   };
@@ -23,7 +23,7 @@ export const buildLoaders = (options: BuildOptions): ModuleOptions["rules"] => {
   const cssLoader = {
     test: /\.css$/i,
     use: [
-      isDev ? "style-loader" : MiniCssExtractPlugin.loader,
+      isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
       cssLoaderWithModules,
     ],
   };
@@ -33,7 +33,7 @@ export const buildLoaders = (options: BuildOptions): ModuleOptions["rules"] => {
     exclude: /node_modules/,
     use: [
       {
-        loader: "ts-loader",
+        loader: 'ts-loader',
         options: {
           transpileOnly: true,
           getCustomTransformers: () => ({

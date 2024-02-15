@@ -1,29 +1,29 @@
-import { createRoot } from "react-dom/client";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { Layout } from "@/Layout";
-import { Home } from "@/pages/Home";
-import { News } from "@/pages/News";
+import {createRoot} from 'react-dom/client';
+import {RouterProvider, createBrowserRouter} from 'react-router-dom';
+import {Layout} from '@/Layout';
+import {Home} from '@/pages/Home';
+import {News} from '@/pages/News';
 
-const domNode = document.getElementById("root");
+const domNode = document.getElementById('root');
 const root = createRoot(domNode);
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <Layout />,
     children: [
       {
-        path: "/",
+        path: '/',
         element: <Home />,
       },
       {
-        path: "/news",
+        path: '/news',
         element: <News />,
       },
     ],
   },
   {
-    path: "about",
+    path: 'about',
     element: <div>About</div>,
   },
 ]);
