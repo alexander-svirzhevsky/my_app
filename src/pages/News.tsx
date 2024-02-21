@@ -1,8 +1,8 @@
 import sw from '@/assets/sw.png';
 import sw2 from '@/assets/sw2.svg';
 
-export const News = () => {
-  // const data = '21';
+const News = () => {
+  const data = '21';
 
   return (
     <>
@@ -20,3 +20,5 @@ export const News = () => {
     </>
   );
 };
+
+export default News;
