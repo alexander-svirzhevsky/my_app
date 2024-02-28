@@ -1,11 +1,13 @@
 import { Suspense, lazy } from 'react';
 import { createRoot } from 'react-dom/client';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import { Layout } from '@/Layout';
-import { Home } from '@/pages/Home';
-import '@/styles/index.css';
-import { ThemeContextProvider } from './theme/ThemeContext';
-const News = lazy(() => import('@/pages/News'));
+import { Layout } from '@/app/Layout';
+
+import { Home } from '@/pages/HomePage';
+import { ThemeContextProvider } from '@/app/contexts/theme';
+import '@/app/styles/index.css';
+
+const News = lazy(() => import('@/pages/NewsPage/'));
 
 const domNode = document.getElementById('root');
 const root = createRoot(domNode);

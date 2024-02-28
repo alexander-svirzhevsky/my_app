@@ -1,7 +1,7 @@
 import { Link, Outlet } from 'react-router-dom';
 import './styles/index.css';
-import { useTheme } from './theme/ThemeContext';
-import { classNames } from './helpers/classNames/classNames';
+import { useTheme } from './contexts/theme/ThemeContext';
+import { classNames } from '@/shared/lib/classNames/classNames';
 
 export const Layout = () => {
   const { theme, toggleTheme } = useTheme();

@@ -1,6 +1,6 @@
 import { ReactNode, createContext, useContext, useMemo, useState } from 'react';
 
-export enum Theme {
+enum Theme {
   LIGHT = 'light',
   DARK = 'dark',
 }
