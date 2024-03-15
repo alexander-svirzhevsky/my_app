@@ -6,8 +6,13 @@ import { BuildOptions } from './types';
 export const buildLoaders = (options: BuildOptions): ModuleOptions['rules'] => {
   const isDev = options.mode === 'development';
 
+  const svgLoader = {
+    test: /\.svg$/,
+    use: ['@svgr/webpack'],
+  };
+
   const assetLoader = {
-    test: /\.(png|svg|jpg|jpeg|gif)$/i,
+    test: /\.(png|jpg|jpeg|gif)$/i,
     type: 'asset/resource',
   };
 
@@ -23,7 +28,10 @@ export const buildLoaders = (options: BuildOptions): ModuleOptions['rules'] => {
 
   const cssLoader = {
     test: /\.css$/i,
-    use: [isDev ? 'style-loader' : MiniCssExtractPlugin.loader, cssLoaderWithModules],
+    use: [
+      isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
+      cssLoaderWithModules,
+    ],
   };
 
   const tsLoader = {
@@ -42,5 +50,5 @@ export const buildLoaders = (options: BuildOptions): ModuleOptions['rules'] => {
     ],
   };
 
-  return [assetLoader, cssLoader, tsLoader];
+  return [svgLoader, assetLoader, cssLoader, tsLoader];
 };

@@ -1,12 +1,13 @@
 import { ReactNode, createContext, useContext, useMemo, useState } from 'react';
 
-enum Theme {
+export enum Theme {
   LIGHT = 'light',
   DARK = 'dark',
 }
 
 const LOCAL_STORAGE_THEME_KEY = 'theme';
-const defaultTheme = (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme) || Theme.LIGHT;
+const defaultTheme =
+  (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme) || Theme.LIGHT;
 
 type ThemeContextProps = {
   theme?: Theme;
@@ -19,7 +20,9 @@ type ThemeContextProviderProps = {
   children: ReactNode;
 };
 
-export const ThemeContextProvider = ({ children }: ThemeContextProviderProps) => {
+export const ThemeContextProvider = ({
+  children,
+}: ThemeContextProviderProps) => {
   const [theme, setTheme] = useState<Theme>(defaultTheme);
 
   const toggleTheme = () => {
@@ -36,7 +39,11 @@ export const ThemeContextProvider = ({ children }: ThemeContextProviderProps) =>
     [theme],
   );
 
-  return <ThemeContext.Provider value={defaultProps}>{children}</ThemeContext.Provider>;
+  return (
+    <ThemeContext.Provider value={defaultProps}>
+      {children}
+    </ThemeContext.Provider>
+  );
 };
 
 export const useTheme = () => {

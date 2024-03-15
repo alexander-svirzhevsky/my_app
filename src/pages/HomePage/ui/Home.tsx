@@ -1,3 +1,5 @@
-export const Home = () => {
-  return <h2>Home</h2>;
+type HomeProps = {};
+
+export const Home = ({}: HomeProps) => {
+  return <div>Home</div>;
 };

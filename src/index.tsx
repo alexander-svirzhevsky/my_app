@@ -3,18 +3,19 @@ import { createRoot } from 'react-dom/client';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { Layout } from '@/app/Layout';
 
-import { Home } from '@/pages/HomePage';
-import { ThemeContextProvider } from '@/app/contexts/theme';
 import '@/app/styles/index.css';
+import { ThemeContextProvider } from '@/app/contexts/theme/ThemeContext';
+import { Home } from '@/pages/HomePage';
+import { Routes } from '@/shared/constant/routes';
 
-const News = lazy(() => import('@/pages/NewsPage/'));
+const News = lazy(() => import('@/pages/NewsPage'));
 
 const domNode = document.getElementById('root');
 const root = createRoot(domNode);
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: Routes.Main,
     element: <Layout />,
     children: [
       {
@@ -22,7 +23,7 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: '/news',
+        path: Routes.News,
         element: (
           <Suspense fallback={<span>Loading...</span>}>
             <News />
