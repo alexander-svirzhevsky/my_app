@@ -1,9 +1,9 @@
-import webpack from 'webpack';
-import {Configuration} from 'mini-css-extract-plugin';
+import webpack, { DefinePlugin } from 'webpack';
+import { Configuration } from 'mini-css-extract-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import {BuildOptions} from './types';
-import {BundleAnalyzerPlugin} from 'webpack-bundle-analyzer';
+import { BuildOptions } from './types';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 
@@ -21,6 +21,9 @@ export const buildPlugins = ({
     }),
     // Typechecking in a separeate thread
     new ForkTsCheckerWebpackPlugin(),
+    new DefinePlugin({
+      __IS_DEV__: JSON.stringify(isDev),
+    }),
   ];
 
   if (isDev) {
