@@ -1,8 +1,9 @@
 import { Suspense, lazy } from 'react';
 import { createRoot } from 'react-dom/client';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import { Layout } from '@/app/Layout';
 
+import '@/shared/config/i18n/i18n';
+import { Layout } from '@/app/Layout';
 import '@/app/styles/index.css';
 import { ThemeContextProvider } from '@/app/contexts/theme/ThemeContext';
 import { Home } from '@/pages/HomePage';
@@ -16,7 +17,11 @@ const root = createRoot(domNode);
 const router = createBrowserRouter([
   {
     path: Routes.Main,
-    element: <Layout />,
+    element: (
+      <Suspense fallback=''>
+        <Layout />
+      </Suspense>
+    ),
     children: [
       {
         path: '/',

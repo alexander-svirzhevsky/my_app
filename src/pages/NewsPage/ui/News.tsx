@@ -1,13 +1,12 @@
-import Sw from '@/shared/assets/sw.png';
 import Sw2 from '@/shared/assets/sw2.svg';
+import { useTranslation } from 'react-i18next';
 
 export const News = () => {
-  const data = '21';
+  const { t } = useTranslation('news');
 
   return (
     <>
-      <span>News page</span>
-      <Sw />
+      <span>{t('news_page')}</span>
       <Sw2 />
     </>
   );

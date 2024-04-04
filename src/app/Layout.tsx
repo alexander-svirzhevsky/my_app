@@ -3,7 +3,6 @@ import './styles/index.css';
 import { useTheme } from './contexts/theme/ThemeContext';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Navbar } from '@/widgets/Navbar';
-import { ToggleThemeButton } from '@/widgets/ToggleThemeButton';
 import { SideBar } from '@/widgets/SideBar';
 
 export const Layout = () => {
