@@ -7,9 +7,22 @@
   font: var(--font-m);
 
   background: var(--bg-color);
-  color: var(--primary-color);
+  color: var(--text-color);
 
   min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--primary-color);
+}
+
+button {
+  color: var(--text-color);
 }
 
 .main-page {

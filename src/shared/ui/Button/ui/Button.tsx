@@ -4,6 +4,7 @@ import { ButtonHTMLAttributes, ReactNode } from 'react';
 
 export enum ButtonTheme {
   CLEAR = 'clear',
+  PRIMARY = 'primary',
 }
 
 type ButtonProps = {

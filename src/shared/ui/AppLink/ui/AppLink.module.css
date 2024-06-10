@@ -1,5 +1,10 @@
 .appLink {
-  color: var(--primary-color);
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.appLink:hover {
+  text-decoration: underline;
 }
 
 .primary {
@@ -7,5 +12,5 @@
 }
 
 .secondary {
-  color: var(--inverted-secondary-color);
+  color: var(--secondary-color);
 }
