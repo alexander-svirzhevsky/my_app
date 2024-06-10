@@ -1,16 +1,17 @@
 .app.light {
-  --bg-color: #ffffff;
-  /* background */
+    --bg-color: #ffffff;
+    --secondary-bg-color: #f0f0f0;
+    /* background */
 
-  --primary-color: #8a2be2;
-  /* heading */
+    --primary-color: #8a2be2;
+    /* heading */
 
-  --secondary-color: #9370db;
-  /* cards, buttons */
+    --secondary-color: #9370db;
+    /* cards, buttons */
 
-  --text-color: #333333;
-  /* text */
+    --text-color: #333333;
+    /* text */
 
-  --accent-color: #ff4500;
-  /* links, buttons */
+    --accent-color: #ff4500;
+    /* links, buttons */
 }

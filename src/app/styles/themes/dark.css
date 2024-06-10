@@ -1,9 +1,10 @@
 .app.dark {
-  --bg-color: #1c1c1c;
+    --bg-color: #1c1c1c;
+    --secondary-bg-color: #2f2f2f;
 
-  --primary-color: #8a2be2;
+    --primary-color: #8a2be2;
 
-  --secondary-color: #9370db;
-  --text-color: #e0e0e0;
-  --accent-color: #ff69b4;
+    --secondary-color: #9370db;
+    --text-color: #e0e0e0;
+    --accent-color: #ff69b4;
 }
