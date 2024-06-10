@@ -9,5 +9,3 @@ export const classNames = (cls: string, mods: Mode = {}, additional: string[] = 
       .map(([className]) => className),
   ].join(' ');
 };
-
-classNames('remove-btn', { hovered: true, red: false }, ['additional']);
