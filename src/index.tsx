@@ -10,6 +10,7 @@ import { Home } from '@/pages/HomePage';
 import { Routes } from '@/shared/constant/routes';
 import { NotFoundPage } from '@/pages/NotFoundPage';
 import { LoaderPage } from './pages/LoaderPage';
+import { ErrorBoundary } from '@/app/providers/ErrorBoundary';
 
 const News = lazy(() => import('@/pages/NewsPage'));
 
@@ -21,7 +22,9 @@ const router = createBrowserRouter([
         path: Routes.Main,
         element: (
             <Suspense fallback={<LoaderPage />}>
-                <Layout />
+                <ErrorBoundary>
+                    <Layout />
+                </ErrorBoundary>
             </Suspense>
         ),
         children: [
