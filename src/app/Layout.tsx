@@ -4,6 +4,7 @@ import { useTheme } from './contexts/theme/ThemeContext';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Navbar } from '@/widgets/Navbar';
 import { SideBar } from '@/widgets/SideBar';
+import { Button, ButtonTheme } from '@/shared/ui/Button';
 
 export const Layout = () => {
     const { theme, toggleTheme } = useTheme();
@@ -13,6 +14,7 @@ export const Layout = () => {
             <div className='main-page'>
                 <SideBar />
                 <div className='main-content'>
+                    <Button theme={ButtonTheme.PRIMARY}>primary</Button>
                     <Outlet />
                 </div>
             </div>
