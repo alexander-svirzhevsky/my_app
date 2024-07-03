@@ -1,7 +1,7 @@
-import { StyleDecorator } from '@/shared/config/storybook/StyleDecorator/StyleDecorator';
+import { withThemeByClassName } from '@storybook/addon-themes';
+import { withRouter } from 'storybook-addon-remix-react-router';
+
 import type { Preview } from '@storybook/react';
-import '../../src/app/styles/themes/normal.css';
-import '../../src/app/styles/themes/dark.css';
 
 const preview: Preview = {
     parameters: {
@@ -12,7 +12,16 @@ const preview: Preview = {
             },
         },
     },
-    decorators: [],
+    decorators: [
+        withRouter,
+        withThemeByClassName<any>({
+            themes: {
+                light: 'app light',
+                dark: 'app dark',
+            },
+            defaultTheme: 'app light',
+        }),
+    ],
 };
 
 export default preview;
