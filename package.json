@@ -9,9 +9,11 @@
     "build:prod": "webpack --env mode=production",
     "build:analyzer": "webpack --env mode=production analyzer=true",
     "typecheck": "tsc",
-    "unit": "jest --config ./config/jest/jest.config.ts",
+    "test:unit": "jest --config ./config/jest/jest.config.ts",
+    "test:loki": "npx loki test",
+    "test:loki:ok": "npx loki approve",
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
-    "build-storybook": "storybook build -c ./config/storybook"
+    "storybook:build": "storybook build -c ./config/storybook"
   },
   "keywords": [],
   "author": "",
