@@ -19,7 +19,7 @@ const preview: Preview = {
                 light: 'app light',
                 dark: 'app dark',
             },
-            defaultTheme: 'app light',
+            defaultTheme: 'light',
         }),
     ],
 };

@@ -12,7 +12,7 @@ const config: StorybookConfig = {
         'storybook-css-modules',
         '@storybook/addon-themes',
         'storybook-addon-remix-react-router',
-        'storybook-react-i18next',
+        // 'storybook-react-i18next',
     ],
     framework: {
         name: '@storybook/react-webpack5',
