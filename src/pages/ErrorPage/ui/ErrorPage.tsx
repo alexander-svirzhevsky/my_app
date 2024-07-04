@@ -14,6 +14,8 @@ export const ErrorPage = ({ className }: ErrorPageProps) => {
         location.reload();
     };
 
+    const b: number = '10'
+
     return (
         <div className={classNames(cn['errorPage'], {}, [className])}>
             <span>{t('something_went_wrong')}</span>
