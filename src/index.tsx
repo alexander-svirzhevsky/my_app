@@ -11,6 +11,7 @@ import { Routes } from '@/shared/constant/routes';
 import { NotFoundPage } from '@/pages/NotFoundPage';
 import { LoaderPage } from './pages/LoaderPage';
 import { ErrorBoundary } from '@/app/providers/ErrorBoundary';
+import { StoreProvider } from './app/providers/StoreProvider';
 
 const News = lazy(() => import('@/pages/NewsPage'));
 
@@ -49,7 +50,9 @@ const router = createBrowserRouter([
 ]);
 
 root.render(
-    <ThemeContextProvider>
-        <RouterProvider router={router} />
-    </ThemeContextProvider>,
+    <StoreProvider>
+        <ThemeContextProvider>
+            <RouterProvider router={router} />
+        </ThemeContextProvider>
+    </StoreProvider>,
 );

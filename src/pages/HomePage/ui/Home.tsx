@@ -1,3 +1,4 @@
+import { Counter } from '@/entities/Counter';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { Modal } from '@/shared/ui/Modal';
 import { Portal } from '@/shared/ui/Portal';
@@ -12,6 +13,7 @@ export const Home = ({}: HomeProps) => {
     return (
         <>
             <div>{t('home_page')}</div>
+            <Counter />
         </>
     );
 };
