@@ -1,0 +1,11 @@
+.Input {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    align-items: center;
+}
+
+.input {
+    padding: 2px 5px;
+    outline: none;
+}

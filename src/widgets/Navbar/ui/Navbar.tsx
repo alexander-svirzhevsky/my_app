@@ -7,6 +7,7 @@ import { Button } from '@/shared/ui/Button';
 import { Portal } from '@/shared/ui/Portal';
 import { Modal } from '@/shared/ui/Modal';
 import { useTranslation } from 'react-i18next';
+import { LoginModal } from '@/features/AuthByUsername';
 
 type NavbarProps = {
     className?: string;
@@ -26,16 +27,10 @@ export const Navbar = ({ className, children }: NavbarProps) => {
                 <Button onClick={() => setIsOpened(true)}>{t('log_in')}</Button>
             </div>
             <Portal>
-                <Modal
+                <LoginModal
                     isOpened={isOpened}
                     onClose={() => setIsOpened(false)}
-                >
-                    <span>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel amet soluta quo
-                        harum quasi dolores architecto provident illum? In dolores corporis maxime
-                        fugiat assumenda nostrum dolor labore velit alias tempora?
-                    </span>
-                </Modal>
+                />
             </Portal>
         </div>
     );

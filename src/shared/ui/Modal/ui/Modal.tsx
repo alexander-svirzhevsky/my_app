@@ -1,15 +1,18 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cn from './Modal.module.css';
-import { ReactNode, useCallback, useEffect } from 'react';
+import { ReactNode, useCallback, useEffect, useState } from 'react';
 
 type ModalProps = {
     className?: string;
     children?: ReactNode;
     isOpened: boolean;
     onClose: () => void;
+    lazy?: boolean;
 };
 
-export const Modal = ({ className, children, isOpened, onClose }: ModalProps) => {
+export const Modal = ({ className, children, isOpened, onClose, lazy }: ModalProps) => {
+    const [isMounted, setIsMounted] = useState(false);
+
     const mods: Record<string, boolean> = {
         [cn['isOpened']]: isOpened,
     };
@@ -33,6 +36,12 @@ export const Modal = ({ className, children, isOpened, onClose }: ModalProps) =>
 
     useEffect(() => {
         if (isOpened) {
+            setIsMounted(true);
+        }
+    }, [isOpened]);
+
+    useEffect(() => {
+        if (isOpened) {
             window.addEventListener('keydown', onKeyDown);
         }
 
@@ -40,6 +49,10 @@ export const Modal = ({ className, children, isOpened, onClose }: ModalProps) =>
             window.removeEventListener('keydown', onKeyDown);
         };
     }, [isOpened]);
+
+    if (lazy && !isMounted) {
+        return null;
+    }
 
     return (
         <div className={classNames(cn['modal'], mods, [className])}>
