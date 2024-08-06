@@ -12,11 +12,9 @@ type ModalProps = {
 
 export const Modal = ({ className, children, isOpened, onClose }: ModalProps) => {
     const { theme } = useTheme();
-    console.log('theme: ', theme);
 
     const mods: Record<string, boolean> = {
         [cn['isOpened']]: isOpened,
-        [cn[theme]]: true,
     };
 
     const onContentClick = (e: React.MouseEvent) => {
@@ -29,8 +27,6 @@ export const Modal = ({ className, children, isOpened, onClose }: ModalProps) =>
 
     const onKeyDown = useCallback(
         (e: KeyboardEvent) => {
-            console.log(e.key);
-
             if (e.key === 'Escape') {
                 onCloseModal();
             }
@@ -49,7 +45,7 @@ export const Modal = ({ className, children, isOpened, onClose }: ModalProps) =>
     }, [isOpened]);
 
     return (
-        <div className={classNames(cn['modal'], mods, [className])}>
+        <div className={classNames(cn['modal'], mods, [className, theme])}>
             <div
                 className={cn['overlay']}
                 onClick={onCloseModal}
