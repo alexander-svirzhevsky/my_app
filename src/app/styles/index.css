@@ -6,7 +6,6 @@
 body {
     font: var(--font-m);
     color: var(--text-color);
-    /* background: var(--bg-color); */
 }
 
 .app {

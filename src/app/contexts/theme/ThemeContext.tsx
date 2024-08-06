@@ -1,4 +1,4 @@
-import { ReactNode, createContext, useContext, useMemo, useState } from 'react';
+import { ReactNode, createContext, useContext, useEffect, useMemo, useState } from 'react';
 
 export enum Theme {
     LIGHT = 'app_light_theme',
@@ -26,6 +26,7 @@ export const ThemeContextProvider = ({ children }: ThemeContextProviderProps) =>
         const newTheme = theme === Theme.DARK ? Theme.LIGHT : Theme.DARK;
         setTheme(newTheme);
         localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
+        document.body.className = newTheme;
     };
 
     const defaultProps = useMemo(
@@ -35,6 +36,10 @@ export const ThemeContextProvider = ({ children }: ThemeContextProviderProps) =>
         }),
         [theme],
     );
+
+    useEffect(() => {
+        document.body.className = defaultTheme;
+    }, []);
 
     return <ThemeContext.Provider value={defaultProps}>{children}</ThemeContext.Provider>;
 };

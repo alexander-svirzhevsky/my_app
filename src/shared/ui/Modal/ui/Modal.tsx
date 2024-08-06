@@ -1,7 +1,6 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cn from './Modal.module.css';
 import { ReactNode, useCallback, useEffect } from 'react';
-import { useTheme } from '@/app/contexts/theme';
 
 type ModalProps = {
     className?: string;
@@ -11,8 +10,6 @@ type ModalProps = {
 };
 
 export const Modal = ({ className, children, isOpened, onClose }: ModalProps) => {
-    const { theme } = useTheme();
-
     const mods: Record<string, boolean> = {
         [cn['isOpened']]: isOpened,
     };
@@ -45,7 +42,7 @@ export const Modal = ({ className, children, isOpened, onClose }: ModalProps) =>
     }, [isOpened]);
 
     return (
-        <div className={classNames(cn['modal'], mods, [className, theme])}>
+        <div className={classNames(cn['modal'], mods, [className])}>
             <div
                 className={cn['overlay']}
                 onClick={onCloseModal}
