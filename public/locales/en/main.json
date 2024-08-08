@@ -1,5 +1,8 @@
 {
     "something_went_wrong": "Something went wrong",
     "reload_page": "Reload the page",
-    "log_in": "Log in"
+    "log_in": "Log in",
+    "logout": "Log out",
+    "auth_form": "Authorization form",
+    "wrong_cred": "Wrond credentials"
 }

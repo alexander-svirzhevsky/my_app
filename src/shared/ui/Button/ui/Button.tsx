@@ -3,28 +3,35 @@ import cn from './Button.module.css';
 import { ButtonHTMLAttributes, ReactNode } from 'react';
 
 export enum ButtonTheme {
-  CLEAR = 'clear',
-  PRIMARY = 'primary',
+    CLEAR = 'clear',
+    PRIMARY = 'primary',
 }
 
 type ButtonProps = {
-  className?: string;
-  children: ReactNode;
-  theme?: ButtonTheme;
+    className?: string;
+    children: ReactNode;
+    theme?: ButtonTheme;
+    disabled?: boolean;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
 export const Button = ({
-  className,
-  children,
-  theme = ButtonTheme.CLEAR,
-  ...otherProps
+    className,
+    children,
+    theme = ButtonTheme.CLEAR,
+    disabled,
+    ...otherProps
 }: ButtonProps) => {
-  return (
-    <button
-      className={classNames(cn['button'], {}, [className, cn[theme]])}
-      {...otherProps}
-    >
-      {children}
-    </button>
-  );
+    const mods: Record<string, boolean> = {
+        [cn[theme]]: true,
+        [cn['disabled']]: disabled,
+    };
+    return (
+        <button
+            className={classNames(cn['button'], mods, [className])}
+            {...otherProps}
+            disabled={disabled}
+        >
+            {children}
+        </button>
+    );
 };

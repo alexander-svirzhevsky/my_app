@@ -14,5 +14,9 @@
 .primary {
     padding: 5px 10px;
     background-color: var(--primary-color);
-    color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.disabled {
+    opacity: 0.5;
 }
