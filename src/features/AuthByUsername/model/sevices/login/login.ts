@@ -3,6 +3,7 @@ import i18n from '@/shared/config/i18n/i18n';
 import { USER_LOCALSTORAGE_KEY } from '@/shared/constant/localstorage';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { authActions } from '../../slice/authSlice';
 
 type LoginParams = {
     username: string;
@@ -22,6 +23,7 @@ export const loginByUsername = createAsyncThunk<User, LoginParams, { rejectValue
             }
             localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(response.data));
             thunkAPI.dispatch(userActions.setAuthData(response.data));
+            thunkAPI.dispatch(authActions.clearAuthData());
 
             return response.data;
         } catch (error) {

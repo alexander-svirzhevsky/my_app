@@ -24,6 +24,7 @@ export const Navbar = ({ className, children }: NavbarProps) => {
     const { t } = useTranslation('main');
 
     const onLogout = () => {
+        setIsOpened(false);
         dispatch(userActions.logout());
     };
 

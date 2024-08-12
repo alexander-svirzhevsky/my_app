@@ -1,18 +1,11 @@
 .app_light_theme {
-    --bg-color: #ffffff;
-    --secondary-bg-color: #f0f0f0;
-    /* background */
+    --primary-color: #4caf50; /* Основной цвет: Зеленый (символизирует рост и надежду) */
+    --secondary-color: #ffeb3b; /* Второстепенный цвет: Желтый (свет и позитив) */
+    --accent-color: #ff5722; /* Акцентный цвет: Оранжевый (энергия и тепло) */
 
-    --primary-color: #8a2be2;
-    /* heading */
+    --bg-color: #ffffff; /* Фоновый цвет: Белый (чистота и простота) */
+    --secondary-bg-color: #f5f5f5;
 
-    --secondary-color: #9370db;
-    /* cards, buttons */
-
-    --text-color: #333333;
-    /* text */
-
-    --accent-color: #dc5b2c;
-    --accent-color-secondary: #ff4400;
-    /* links, buttons */
+    --text-color: #212121; /* Цвет текста: Темно-серый (контрастный, но не резкий) */
+    --border-color: #e0e0e0; /* Цвет границ: Светло-серый (незаметный, но выделяющий элементы) */
 }

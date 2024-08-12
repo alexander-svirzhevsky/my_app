@@ -8,9 +8,11 @@
     color: var(--secondary-color);
 }
 
-.error .title {
+.error .title,
+.text {
     color: var(--accent-color);
 }
-.error .text {
-    color: var(--accent-color-secondary);
-}
+
+/* .error .text {
+    color: var(--accent-color);
+} */

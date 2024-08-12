@@ -20,7 +20,7 @@ export const ToggleThemeButton = ({ className }: ToggleThemeButtonProps) => {
             onClick={toggleTheme}
             className={classNames(cn['toggleThemeButton'], {}, [className])}
         >
-            {theme === Theme.LIGHT ? <MoonIcon fill='yellow' /> : <SunIcon />}
+            {theme === Theme.LIGHT ? <MoonIcon fill='#757575' /> : <SunIcon fill='yellow' />}
         </Button>
     );
 };

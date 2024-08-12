@@ -29,6 +29,7 @@ describe('Counter', () => {
             initialState: state as StateSchema,
         });
         fireEvent.click(screen.getByRole('button', { name: /decrement/ }));
+        fireEvent.click(screen.getByRole('button', { name: /decrement/ }));
         expect(screen.getByTestId('value-title')).toHaveTextContent('-1');
     });
 });

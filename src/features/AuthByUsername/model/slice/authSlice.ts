@@ -18,6 +18,11 @@ const authSlice = createSlice({
         setPassword: (state, action: PayloadAction<string>) => {
             state.password = action.payload;
         },
+        clearAuthData: (state) => {
+            state.username = '';
+            state.password = '';
+            state.isLoading = false;
+        },
     },
     extraReducers: (builder) => {
         builder
