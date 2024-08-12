@@ -10,11 +10,8 @@
         "build:prod": "webpack --env mode=production",
         "build:analyzer": "webpack --env mode=production analyzer=true",
         "test:unit": "jest --config ./config/jest/jest.config.ts",
-        "test:loki": "npx loki test",
-        "test:loki:ok": "npx loki approve",
         "storybook": "storybook dev -p 6006 -c ./config/storybook",
-        "storybook:build": "storybook build -c ./config/storybook",
-        "test:ui:ci": "loki --requireReference --reactUri file:./storybook-static"
+        "storybook:build": "storybook build -c ./config/storybook"
     },
     "keywords": [],
     "author": "",
@@ -56,7 +53,6 @@
         "jest-environment-jsdom": "^29.7.0",
         "jest-svg-transformer": "^1.0.0",
         "json-server": "^0.17.0",
-        "loki": "^0.35.0",
         "mini-css-extract-plugin": "^2.8.0",
         "react-refresh": "^0.14.0",
         "react-refresh-typescript": "^2.0.9",
@@ -86,20 +82,5 @@
         "react-i18next": "^14.1.0",
         "react-redux": "^9.1.2",
         "react-router-dom": "^6.22.0"
-    },
-    "loki": {
-        "configurations": {
-            "chrome.laptop": {
-                "target": "chrome.app",
-                "width": 1366,
-                "height": 768,
-                "deviceScaleFactor": 1,
-                "mobile": false
-            },
-            "chrome.iphone7": {
-                "target": "chrome.app",
-                "preset": "iPhone 7"
-            }
-        }
     }
 }
