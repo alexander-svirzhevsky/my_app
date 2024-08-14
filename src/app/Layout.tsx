@@ -8,21 +8,20 @@ import { useEffect } from 'react';
 import { userActions } from '@/entities/User';
 
 export const Layout = () => {
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-    useEffect(() => {
-        dispatch(userActions.initAuthData());
-    }, [dispatch]);
-    return (
-        <div className='app'>
-            <Navbar />
-            <div className='main-page'>
-                <SideBar />
-                <div className='main-content'>
-                    <Button theme={ButtonTheme.PRIMARY}>primary</Button>
-                    <Outlet />
-                </div>
-            </div>
+  useEffect(() => {
+    dispatch(userActions.initAuthData());
+  }, [dispatch]);
+  return (
+    <div className='app'>
+      <Navbar />
+      <div className='main-page'>
+        <SideBar />
+        <div className='main-content'>
+          <Outlet />
         </div>
-    );
+      </div>
+    </div>
+  );
 };

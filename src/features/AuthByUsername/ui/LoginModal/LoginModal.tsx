@@ -4,20 +4,20 @@ import { Modal } from '@/shared/ui/Modal';
 import { LoginForm } from '../LoginForm/LoginForm';
 
 type LoginModalProps = {
-    className?: string;
-    isOpened: boolean;
-    onClose: () => void;
+  className?: string;
+  isOpened: boolean;
+  onClose: () => void;
 };
 
 export const LoginModal = ({ className, isOpened, onClose }: LoginModalProps) => {
-    return (
-        <Modal
-            className={classNames(cn['LoginModal'], {}, [className])}
-            isOpened={isOpened}
-            onClose={onClose}
-            lazy
-        >
-            <LoginForm />
-        </Modal>
-    );
+  return (
+    <Modal
+      className={classNames(cn['LoginModal'], {}, [className])}
+      isOpened={isOpened}
+      onClose={onClose}
+      lazy
+    >
+      <LoginForm onSuccess={onClose} />
+    </Modal>
+  );
 };

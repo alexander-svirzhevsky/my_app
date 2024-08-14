@@ -13,46 +13,46 @@ import { LoaderPage } from './pages/LoaderPage';
 import { ErrorBoundary } from '@/app/providers/ErrorBoundary';
 import { StoreProvider } from './app/providers/StoreProvider';
 
-const News = lazy(() => import('@/pages/NewsPage'));
+const News = lazy(() => import('@/pages/ProfilePage'));
 
 const domNode = document.getElementById('root');
 const root = createRoot(domNode);
 
 const router = createBrowserRouter([
-    {
-        path: Routes.Main,
+  {
+    path: Routes.Main,
+    element: (
+      <Suspense fallback={<LoaderPage />}>
+        <ErrorBoundary>
+          <Layout />
+        </ErrorBoundary>
+      </Suspense>
+    ),
+    children: [
+      {
+        path: '/',
+        element: <Home />,
+      },
+      {
+        path: Routes.Profile,
         element: (
-            <Suspense fallback={<LoaderPage />}>
-                <ErrorBoundary>
-                    <Layout />
-                </ErrorBoundary>
-            </Suspense>
+          <Suspense fallback={<LoaderPage />}>
+            <News />
+          </Suspense>
         ),
-        children: [
-            {
-                path: '/',
-                element: <Home />,
-            },
-            {
-                path: Routes.News,
-                element: (
-                    <Suspense fallback={<LoaderPage />}>
-                        <News />
-                    </Suspense>
-                ),
-            },
-            {
-                path: '*',
-                element: <NotFoundPage />,
-            },
-        ],
-    },
+      },
+      {
+        path: '*',
+        element: <NotFoundPage />,
+      },
+    ],
+  },
 ]);
 
 root.render(
-    <StoreProvider>
-        <ThemeContextProvider>
-            <RouterProvider router={router} />
-        </ThemeContextProvider>
-    </StoreProvider>,
+  <StoreProvider>
+    <ThemeContextProvider>
+      <RouterProvider router={router} />
+    </ThemeContextProvider>
+  </StoreProvider>,
 );

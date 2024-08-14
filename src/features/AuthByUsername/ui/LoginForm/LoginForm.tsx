@@ -2,11 +2,10 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import cn from './LoginForm.module.css';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { Input } from '@/shared/ui/Input';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { authActions, authReducer } from '../../model/slice/authSlice';
 import { useCallback } from 'react';
 import { loginByUsername } from '../../model/sevices/login/login';
-import { AppDispatch } from '@/app/providers/StoreProvider/config/store';
 import { Text, TextTheme } from '@/shared/ui/Text';
 import { useTranslation } from 'react-i18next';
 import { getAuthUsername } from '../../model/selectors/getAuthUsername/getAuthUsername';
@@ -17,19 +16,21 @@ import {
   DynamicModuleLoader,
   ReducersList,
 } from '@/shared/lib/dynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 
 type LoginFormProps = {
   className?: string;
+  onSuccess?: () => void;
 };
 
 const initialReducers: ReducersList = {
   auth: authReducer,
 };
 
-export const LoginForm = ({ className }: LoginFormProps) => {
+export const LoginForm = ({ className, onSuccess }: LoginFormProps) => {
   const { t } = useTranslation('main');
 
-  const dispath: AppDispatch = useDispatch();
+  const dispath = useAppDispatch();
 
   const username = useSelector(getAuthUsername);
   const password = useSelector(getAuthPassword);
@@ -50,8 +51,11 @@ export const LoginForm = ({ className }: LoginFormProps) => {
     [dispath],
   );
 
-  const onSubmit = () => {
-    dispath(loginByUsername({ username, password }));
+  const onSubmit = async () => {
+    const result = await dispath(loginByUsername({ username, password }));
+    if (result.meta.requestStatus === 'fulfilled') {
+      onSuccess();
+    }
   };
 
   return (

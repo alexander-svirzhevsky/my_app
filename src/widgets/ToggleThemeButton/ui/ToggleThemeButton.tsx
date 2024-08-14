@@ -6,21 +6,22 @@ import { ButtonTheme } from '@/shared/ui/Button/ui/Button';
 import SunIcon from 'shared/assets/sun.svg';
 import MoonIcon from 'shared/assets/moon.svg';
 import { Theme } from '@/app/contexts/theme/ThemeContext';
+import { memo } from 'react';
 
 type ToggleThemeButtonProps = {
-    className?: string;
+  className?: string;
 };
 
-export const ToggleThemeButton = ({ className }: ToggleThemeButtonProps) => {
-    const { theme, toggleTheme } = useTheme();
+export const ToggleThemeButton = memo(({ className }: ToggleThemeButtonProps) => {
+  const { theme, toggleTheme } = useTheme();
 
-    return (
-        <Button
-            theme={ButtonTheme.CLEAR}
-            onClick={toggleTheme}
-            className={classNames(cn['toggleThemeButton'], {}, [className])}
-        >
-            {theme === Theme.LIGHT ? <MoonIcon fill='#757575' /> : <SunIcon fill='yellow' />}
-        </Button>
-    );
-};
+  return (
+    <Button
+      theme={ButtonTheme.CLEAR}
+      onClick={toggleTheme}
+      className={classNames(cn['toggleThemeButton'], {}, [className])}
+    >
+      {theme === Theme.LIGHT ? <MoonIcon fill='#757575' /> : <SunIcon fill='yellow' />}
+    </Button>
+  );
+});

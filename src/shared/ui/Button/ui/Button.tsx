@@ -1,37 +1,33 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cn from './Button.module.css';
-import { ButtonHTMLAttributes, ReactNode } from 'react';
+import { ButtonHTMLAttributes, memo, ReactNode } from 'react';
 
 export enum ButtonTheme {
-    CLEAR = 'clear',
-    PRIMARY = 'primary',
+  CLEAR = 'clear',
+  PRIMARY = 'primary',
 }
 
 type ButtonProps = {
-    className?: string;
-    children: ReactNode;
-    theme?: ButtonTheme;
-    disabled?: boolean;
+  className?: string;
+  children: ReactNode;
+  theme?: ButtonTheme;
+  disabled?: boolean;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
-export const Button = ({
-    className,
-    children,
-    theme = ButtonTheme.CLEAR,
-    disabled,
-    ...otherProps
-}: ButtonProps) => {
+export const Button = memo(
+  ({ className, children, theme = ButtonTheme.CLEAR, disabled, ...otherProps }: ButtonProps) => {
     const mods: Record<string, boolean> = {
-        [cn[theme]]: true,
-        [cn['disabled']]: disabled,
+      [cn[theme]]: true,
+      [cn['disabled']]: disabled,
     };
     return (
-        <button
-            className={classNames(cn['button'], mods, [className])}
-            {...otherProps}
-            disabled={disabled}
-        >
-            {children}
-        </button>
+      <button
+        className={classNames(cn['button'], mods, [className])}
+        {...otherProps}
+        disabled={disabled}
+      >
+        {children}
+      </button>
     );
-};
+  },
+);

@@ -1,0 +1,36 @@
+.sideBar {
+  width: var(--sidebar-width);
+  height: calc(100vh - var(--navbar-height));
+  background-color: var(--secondary-bg-color);
+  position: relative;
+  transition: width 0.3s;
+  gap: 5px;
+}
+
+.collapsed {
+  width: var(--sidebar-width-collapsed);
+}
+
+.collapsed .text {
+  display: none;
+}
+
+.collapsed .links {
+  margin: 0;
+  align-items: center;
+}
+
+.switchers {
+  position: absolute;
+  bottom: 10px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-left: 20px;
+}

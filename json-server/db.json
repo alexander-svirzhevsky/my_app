@@ -1,29 +1,38 @@
 {
-    "posts": [
-        {
-            "id": 1,
-            "title": "json-server",
-            "userId": 1
-        },
-        {
-            "id": 2,
-            "title": "json-server",
-            "userId": 2
-        }
-    ],
-    "comments": [
-        {
-            "id": 1,
-            "body": "some comment",
-            "postId": 1
-        }
-    ],
-    "users": [
-        {
-            "id": 1,
-            "username": "admin",
-            "password": "123"
-        }
-    ],
-    "profile": { "name": "typicode" }
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "userId": 1
+    },
+    {
+      "id": 2,
+      "title": "json-server",
+      "userId": 2
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": "admin",
+      "password": "123"
+    }
+  ],
+  "profile": {
+    "firstname": "Alex",
+    "lastname": "Svirzhevskij",
+    "age": 30,
+    "currency": "USD",
+    "country": "Belarus",
+    "city": "Brest",
+    "username": "admin",
+    "avatar": "https://gravatar.com/avatar/bb4128513952ab21afa83488560be45d?s=400&d=robohash&r=x"
+  }
 }
