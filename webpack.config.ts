@@ -1,13 +1,7 @@
 import path from 'path';
 import webpack from 'webpack';
-import {buildWebpack} from './config/build/buildWebpack';
-import {BuildMode, BuildPaths} from './config/build/types';
-
-interface EnvVariables {
-  mode: BuildMode;
-  port: number;
-  analyzer: boolean;
-}
+import { buildWebpack } from './config/build/buildWebpack';
+import { BuildPaths, EnvVariables } from './config/build/types';
 
 export default (env: EnvVariables) => {
   const paths: BuildPaths = {
@@ -16,11 +10,16 @@ export default (env: EnvVariables) => {
     output: path.resolve(__dirname, 'build'),
     src: path.resolve(__dirname, 'src'),
   };
+
+  const apiUrl = env.apiUrl || 'http://localhost:8000';
+
   const config: webpack.Configuration = buildWebpack({
     port: env.port ?? 3000,
     mode: env.mode ?? 'development',
     paths,
     analyzer: env.analyzer,
+    apiUrl,
   });
+
   return config;
 };

@@ -11,6 +11,7 @@ export const buildPlugins = ({
   mode,
   paths,
   analyzer,
+  apiUrl,
 }: BuildOptions): Configuration['plugins'] => {
   const isDev = mode === 'development';
   const isProd = mode === 'production';
@@ -23,6 +24,7 @@ export const buildPlugins = ({
     new ForkTsCheckerWebpackPlugin(),
     new DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev),
+      __API__: JSON.stringify(apiUrl),
     }),
   ];
 

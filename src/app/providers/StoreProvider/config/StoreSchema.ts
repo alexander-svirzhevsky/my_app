@@ -3,6 +3,7 @@ import { ProfileSchema } from '@/entities/Profile';
 import { UserSchema } from '@/entities/User';
 import { AuthSchema } from '@/features/AuthByUsername';
 import { Action, EnhancedStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
+import { AxiosInstance } from 'axios';
 
 export type StateSchema = {
   counter: CounterSchema;
@@ -23,4 +24,13 @@ export type ReducerManager = {
   reduce: (state: StateSchema, action: Action) => StateSchema;
   add: (key: StateSchemaKeys, reducer: Reducer) => void;
   remove: (key: StateSchemaKeys) => void;
+};
+
+export type ThunkExtraArg = {
+  api: AxiosInstance;
+};
+
+export type ThunkConfig<T> = {
+  rejectValue: T;
+  extra: ThunkExtraArg;
 };

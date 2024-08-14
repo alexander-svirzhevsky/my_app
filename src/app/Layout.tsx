@@ -6,6 +6,7 @@ import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { userActions } from '@/entities/User';
+import { StoreProvider } from './providers/StoreProvider';
 
 export const Layout = () => {
   const dispatch = useDispatch();
@@ -13,6 +14,7 @@ export const Layout = () => {
   useEffect(() => {
     dispatch(userActions.initAuthData());
   }, [dispatch]);
+
   return (
     <div className='app'>
       <Navbar />

@@ -3,6 +3,8 @@ import { StateSchema } from './StoreSchema';
 import { counterReducer } from '@/entities/Counter';
 import { userReducer } from '@/entities/User';
 import { createReducerManager } from './reducerManager';
+import { $api } from '@/shared/api/api';
+import { NavigateOptions, To } from 'react-router-dom';
 
 export const configureReduxStore = (initialState?: StateSchema) => {
   const rootReducer: ReducersMapObject<StateSchema> = {
@@ -16,6 +18,14 @@ export const configureReduxStore = (initialState?: StateSchema) => {
     reducer: reducerManager.reduce,
     devTools: __IS_DEV__,
     preloadedState: initialState,
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware({
+        thunk: {
+          extraArgument: {
+            api: $api,
+          },
+        },
+      }),
   });
 
   // @ts-ignore
@@ -24,5 +34,4 @@ export const configureReduxStore = (initialState?: StateSchema) => {
   return store;
 };
 
-export const store = configureReduxStore();
-export type AppDispatch = typeof store.dispatch;
+export type AppDispatch = ReturnType<typeof configureReduxStore>['dispatch'];
