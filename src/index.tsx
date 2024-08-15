@@ -15,7 +15,7 @@ import { StoreProvider } from './app/providers/StoreProvider';
 
 const News = lazy(() => import('@/pages/ProfilePage'));
 
-const domNode = document.getElementById('root');
+const domNode = document.getElementById('root') as Element;
 const root = createRoot(domNode);
 
 const router = createBrowserRouter([

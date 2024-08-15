@@ -5,7 +5,7 @@ import { Input } from '@/shared/ui/Input';
 import { useSelector } from 'react-redux';
 import { authActions, authReducer } from '../../model/slice/authSlice';
 import { useCallback } from 'react';
-import { loginByUsername } from '../../model/sevices/login/login';
+import { loginByUsername } from '../../model/services/login/login';
 import { Text, TextTheme } from '@/shared/ui/Text';
 import { useTranslation } from 'react-i18next';
 import { getAuthUsername } from '../../model/selectors/getAuthUsername/getAuthUsername';
@@ -54,7 +54,7 @@ export const LoginForm = ({ className, onSuccess }: LoginFormProps) => {
   const onSubmit = async () => {
     const result = await dispath(loginByUsername({ username, password }));
     if (result.meta.requestStatus === 'fulfilled') {
-      onSuccess();
+      onSuccess?.();
     }
   };
 

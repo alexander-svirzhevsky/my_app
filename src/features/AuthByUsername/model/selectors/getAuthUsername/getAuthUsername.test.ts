@@ -1,5 +1,4 @@
 import { StateSchema } from '@/app/providers/StoreProvider';
-import { DeepPartial } from '@/shared/lib/ts';
 import { getAuthUsername } from './getAuthUsername';
 
 describe('getAuthUsername', () => {

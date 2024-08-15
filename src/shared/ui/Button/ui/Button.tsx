@@ -1,4 +1,4 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
+import { classNames, Mode } from '@/shared/lib/classNames/classNames';
 import cn from './Button.module.css';
 import { ButtonHTMLAttributes, memo, ReactNode } from 'react';
 
@@ -15,8 +15,14 @@ type ButtonProps = {
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
 export const Button = memo(
-  ({ className, children, theme = ButtonTheme.CLEAR, disabled, ...otherProps }: ButtonProps) => {
-    const mods: Record<string, boolean> = {
+  ({
+    className,
+    children,
+    theme = ButtonTheme.CLEAR,
+    disabled = false,
+    ...otherProps
+  }: ButtonProps) => {
+    const mods: Mode = {
       [cn[theme]]: true,
       [cn['disabled']]: disabled,
     };

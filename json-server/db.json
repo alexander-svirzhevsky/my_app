@@ -26,13 +26,13 @@
     }
   ],
   "profile": {
-    "firstname": "Alex",
+    "firstname": "Alexander",
     "lastname": "Svirzhevskij",
     "age": 30,
     "currency": "USD",
     "country": "Belarus",
     "city": "Brest",
-    "username": "admin",
-    "avatar": "https://gravatar.com/avatar/bb4128513952ab21afa83488560be45d?s=400&d=robohash&r=x"
+    "username": "alex",
+    "avatar": "https://avatar.iran.liara.run/public"
   }
 }

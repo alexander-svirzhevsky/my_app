@@ -1,4 +1,4 @@
-import { profileReducer } from '@/entities/Profile';
+import { ProfileCard, profileReducer } from '@/entities/Profile';
 import {
   DynamicModuleLoader,
   ReducersList,
@@ -18,7 +18,7 @@ export const Profile = () => {
       reducers={initialReducers}
       removeAfterUnmount
     >
-      <span>{t('profile_page')}</span>
+      <ProfileCard />
     </DynamicModuleLoader>
   );
 };

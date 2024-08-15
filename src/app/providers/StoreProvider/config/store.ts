@@ -4,7 +4,6 @@ import { counterReducer } from '@/entities/Counter';
 import { userReducer } from '@/entities/User';
 import { createReducerManager } from './reducerManager';
 import { $api } from '@/shared/api/api';
-import { NavigateOptions, To } from 'react-router-dom';
 
 export const configureReduxStore = (initialState?: StateSchema) => {
   const rootReducer: ReducersMapObject<StateSchema> = {
@@ -15,9 +14,11 @@ export const configureReduxStore = (initialState?: StateSchema) => {
   const reducerManager = createReducerManager(rootReducer);
 
   const store = configureStore<StateSchema>({
+    // @ts-ignore
     reducer: reducerManager.reduce,
     devTools: __IS_DEV__,
     preloadedState: initialState,
+    // @ts-ignore
     middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware({
         thunk: {
@@ -34,4 +35,7 @@ export const configureReduxStore = (initialState?: StateSchema) => {
   return store;
 };
 
-export type AppDispatch = ReturnType<typeof configureReduxStore>['dispatch'];
+const store = configureReduxStore();
+export type AppDispatch = typeof store.dispatch;
+
+// export type AppDispatch = ReturnType<typeof configureReduxStore>['dispatch'];

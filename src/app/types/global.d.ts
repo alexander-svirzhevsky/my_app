@@ -17,3 +17,15 @@ declare module '*.svg' {
 
 declare const __IS_DEV__: boolean;
 declare const __API__: string;
+
+declare type DeepPartial<T> = unknown extends T
+  ? T
+  : T extends object
+    ? {
+        [P in keyof T]?: T[P] extends Array<infer U>
+          ? Array<DeepPartial<U>>
+          : T[P] extends ReadonlyArray<infer U>
+            ? ReadonlyArray<DeepPartial<U>>
+            : DeepPartial<T[P]>;
+      }
+    : T;

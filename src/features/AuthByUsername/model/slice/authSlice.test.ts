@@ -1,4 +1,3 @@
-import { DeepPartial } from '@/shared/lib/ts';
 import { AuthSchema } from '../types/authSchema';
 import { authActions, authReducer } from './authSlice';
 
