@@ -1,7 +1,7 @@
 import { CounterSchema } from '@/entities/Counter';
-import { ProfileSchema } from '@/entities/Profile';
 import { UserSchema } from '@/entities/User';
 import { AuthSchema } from '@/features/AuthByUsername';
+import { ProfileSchema } from '@/features/EditableProfileCard';
 import { Action, EnhancedStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
 
@@ -33,4 +33,5 @@ export type ThunkExtraArg = {
 export type ThunkConfig<T> = {
   rejectValue: T;
   extra: ThunkExtraArg;
+  state: StateSchema;
 };

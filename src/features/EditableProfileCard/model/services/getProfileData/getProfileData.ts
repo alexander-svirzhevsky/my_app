@@ -9,14 +9,14 @@ export const getProfileData = createAsyncThunk<ProfileType, void, ThunkConfig<st
 
     try {
       const response = await extra.api.get<ProfileType>('/profile');
+
       if (!response.data) {
         throw new Error();
       }
 
       return response.data;
     } catch (error) {
-      console.log(error);
-      return rejectWithValue('Wrond credentials');
+      return rejectWithValue('Error whule fetching profile data');
     }
   },
 );

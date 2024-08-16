@@ -14,11 +14,9 @@ export const configureReduxStore = (initialState?: StateSchema) => {
   const reducerManager = createReducerManager(rootReducer);
 
   const store = configureStore<StateSchema>({
-    // @ts-ignore
     reducer: reducerManager.reduce,
     devTools: __IS_DEV__,
     preloadedState: initialState,
-    // @ts-ignore
     middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware({
         thunk: {

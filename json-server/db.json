@@ -28,11 +28,12 @@
   "profile": {
     "firstname": "Alexander",
     "lastname": "Svirzhevskij",
-    "age": 30,
-    "currency": "USD",
+    "age": "30",
+    "currency": "EUR",
     "country": "Belarus",
     "city": "Brest",
     "username": "alex",
-    "avatar": "https://avatar.iran.liara.run/public"
+    "avatar": "https://avatar.iran.liara.run/public/33",
+    "currncy": "RUB"
   }
 }
