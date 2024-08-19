@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 
 type GuardedRouteProps = {
-  children: ReactNode;
+  children?: ReactNode;
 };
 
 export const GuardedRoute = ({ children }: GuardedRouteProps) => {

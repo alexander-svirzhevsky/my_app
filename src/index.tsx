@@ -15,6 +15,8 @@ import { StoreProvider } from './app/providers/StoreProvider';
 import { GuardedRoute } from './shared/lib/guarderRoute/GuardedRoute';
 
 const Profile = lazy(() => import('@/pages/ProfilePage'));
+const Articles = lazy(() => import('@/pages/ArticlesPage'));
+const ArticleDetails = lazy(() => import('@/pages/ArticleDetailsPage'));
 
 const domNode = document.getElementById('root') as Element;
 const root = createRoot(domNode);
@@ -42,6 +44,22 @@ const router = createBrowserRouter([
               <Profile />
             </Suspense>
           </GuardedRoute>
+        ),
+      },
+      {
+        path: Routes.Articles,
+        element: (
+          <Suspense fallback={<LoaderPage />}>
+            <Articles />
+          </Suspense>
+        ),
+      },
+      {
+        path: `${Routes.Articles}/:id`,
+        element: (
+          <Suspense fallback={<LoaderPage />}>
+            <ArticleDetails />
+          </Suspense>
         ),
       },
       {

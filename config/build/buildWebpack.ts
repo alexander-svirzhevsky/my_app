@@ -1,12 +1,12 @@
 import webpack from 'webpack';
-import {buildDebServer} from './buildDevServer';
-import {buildLoaders} from './buildLoaders';
-import {buildPlugins} from './buildPlugins';
-import {buildResolvers} from './buildResolvers';
-import {BuildOptions} from './types';
+import { buildDebServer } from './buildDevServer';
+import { buildLoaders } from './buildLoaders';
+import { buildPlugins } from './buildPlugins';
+import { buildResolvers } from './buildResolvers';
+import { BuildOptions } from './types';
 
 export const buildWebpack = (options: BuildOptions): webpack.Configuration => {
-  const {mode, paths} = options;
+  const { mode, paths } = options;
   const isDev = mode === 'development';
 
   return {
@@ -16,6 +16,7 @@ export const buildWebpack = (options: BuildOptions): webpack.Configuration => {
       path: paths.output,
       filename: '[name].[contenthash].js',
       clean: true,
+      publicPath: '/',
     },
     plugins: buildPlugins(options),
     module: {
