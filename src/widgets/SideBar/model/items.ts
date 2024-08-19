@@ -7,6 +7,7 @@ export type SideBarItemType = {
   path: string;
   text: string;
   Icon: FC<SVGProps<SVGSVGElement>>;
+  authRequired?: boolean;
 };
 
 export const sideBarItemsList: SideBarItemType[] = [
@@ -19,5 +20,6 @@ export const sideBarItemsList: SideBarItemType[] = [
     path: Routes.Profile,
     text: 'Profile page',
     Icon: ProfileIcon,
+    authRequired: true,
   },
 ];

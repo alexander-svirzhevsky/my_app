@@ -12,8 +12,9 @@ import { NotFoundPage } from '@/pages/NotFoundPage';
 import { LoaderPage } from './pages/LoaderPage';
 import { ErrorBoundary } from '@/app/providers/ErrorBoundary';
 import { StoreProvider } from './app/providers/StoreProvider';
+import { GuardedRoute } from './shared/lib/guarderRoute/GuardedRoute';
 
-const News = lazy(() => import('@/pages/ProfilePage'));
+const Profile = lazy(() => import('@/pages/ProfilePage'));
 
 const domNode = document.getElementById('root') as Element;
 const root = createRoot(domNode);
@@ -36,9 +37,11 @@ const router = createBrowserRouter([
       {
         path: Routes.Profile,
         element: (
-          <Suspense fallback={<LoaderPage />}>
-            <News />
-          </Suspense>
+          <GuardedRoute>
+            <Suspense fallback={<LoaderPage />}>
+              <Profile />
+            </Suspense>
+          </GuardedRoute>
         ),
       },
       {

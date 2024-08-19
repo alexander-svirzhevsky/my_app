@@ -35,5 +35,3 @@ export const configureReduxStore = (initialState?: StateSchema) => {
 
 const store = configureReduxStore();
 export type AppDispatch = typeof store.dispatch;
-
-// export type AppDispatch = ReturnType<typeof configureReduxStore>['dispatch'];

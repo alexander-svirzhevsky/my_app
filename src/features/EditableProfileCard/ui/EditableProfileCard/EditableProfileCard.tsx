@@ -56,7 +56,6 @@ export const EditableProfileCard = ({ className }: EditableProfileCardProps) => 
     },
     [dispath],
   );
-
   const onEditAge = useCallback(
     (value: string) => {
       dispath(
@@ -67,7 +66,6 @@ export const EditableProfileCard = ({ className }: EditableProfileCardProps) => 
     },
     [dispath],
   );
-
   const onChangeCountry = useCallback(
     (value: Country) => {
       dispath(
@@ -78,14 +76,12 @@ export const EditableProfileCard = ({ className }: EditableProfileCardProps) => 
     },
     [dispath],
   );
-
   const onChangeCurrency = useCallback(
     (value: Currency) => {
-      dispath(profileActions.modifyProfileForm({ currecy: value }));
+      dispath(profileActions.modifyProfileForm({ currency: value }));
     },
     [dispath],
   );
-
   const onChangeAvatar = useCallback(
     (value: string) => {
       dispath(

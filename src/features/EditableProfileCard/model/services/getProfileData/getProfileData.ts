@@ -5,18 +5,14 @@ import { ProfileType } from '../../types/profile';
 export const getProfileData = createAsyncThunk<ProfileType, void, ThunkConfig<string>>(
   'profile/getProfileData',
   async (_, thunkAPI) => {
-    const { extra, dispatch, rejectWithValue } = thunkAPI;
+    const { extra, rejectWithValue } = thunkAPI;
 
     try {
       const response = await extra.api.get<ProfileType>('/profile');
 
-      if (!response.data) {
-        throw new Error();
-      }
-
       return response.data;
     } catch (error) {
-      return rejectWithValue('Error whule fetching profile data');
+      return rejectWithValue('Error while fetching profile data');
     }
   },
 );
