@@ -1,4 +1,5 @@
 import { getUserAuthData } from '@/entities/User';
+import { Routes } from '../../constant/routes';
 import { ReactNode } from 'react';
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
@@ -14,5 +15,5 @@ export const GuardedRoute = ({ children }: GuardedRouteProps) => {
     return children;
   }
 
-  return <Navigate to='/' />;
+  return <Navigate to={Routes.Main} />;
 };
