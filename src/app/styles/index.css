@@ -39,6 +39,7 @@ button {
   height: calc(100vh - var(--navbar-height));
   overflow-y: scroll;
   padding: 20px 30px;
+  width: 100%;
 }
 
 *::-webkit-scrollbar {

@@ -2,6 +2,10 @@
   min-height: 100%;
 }
 
+.icon {
+  width: 30px;
+}
+
 .avatar {
   margin: 0 auto;
 }
@@ -12,4 +16,21 @@
 
 .skeleton {
   margin-top: 15px;
+}
+
+.articleInfo {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.avatarWrapper {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.block {
+  margin-top: 16px;
 }

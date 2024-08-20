@@ -1,6 +1,6 @@
 import { CSSProperties, memo } from 'react';
 import cn from './Skeleton.module.css';
-import { classNames } from '../../lib/classNames/classNames';
+import { classNames } from '../../../lib/classNames/classNames';
 
 interface SkeletonProps {
   className?: string;

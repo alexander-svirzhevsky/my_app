@@ -49,17 +49,21 @@ const router = createBrowserRouter([
       {
         path: Routes.Articles,
         element: (
-          <Suspense fallback={<LoaderPage />}>
-            <Articles />
-          </Suspense>
+          <GuardedRoute>
+            <Suspense fallback={<LoaderPage />}>
+              <Articles />
+            </Suspense>
+          </GuardedRoute>
         ),
       },
       {
         path: `${Routes.Articles}/:id`,
         element: (
-          <Suspense fallback={<LoaderPage />}>
-            <ArticleDetails />
-          </Suspense>
+          <GuardedRoute>
+            <Suspense fallback={<LoaderPage />}>
+              <ArticleDetails />
+            </Suspense>
+          </GuardedRoute>
         ),
       },
       {

@@ -1,18 +1,28 @@
+.Text {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 .title {
-    font-size: var(--font-size-l);
-    color: var(--primary-color);
+  font-size: var(--font-size-l);
+  color: var(--primary-color);
 }
 
 .text {
-    font-size: var(--font-size-m);
-    color: var(--secondary-color);
+  font-size: var(--font-size-m);
+  color: var(--secondary-color);
 }
 
 .error .title,
-.text {
-    color: var(--accent-color);
+.error .text {
+  color: var(--accent-color);
 }
 
-/* .error .text {
-    color: var(--accent-color);
-} */
+.size_l .title {
+  font-size: var(--font-size-xl);
+}
+
+.size_l .text {
+  font-size: var(--font-size-l);
+}

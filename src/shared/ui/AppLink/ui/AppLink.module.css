@@ -4,6 +4,10 @@
 }
 
 .appLink:hover {
+  opacity: 0.7;
+}
+
+.appLink:hover {
   text-decoration: underline;
 }
 
