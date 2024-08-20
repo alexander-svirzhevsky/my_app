@@ -1,3 +1,4 @@
+import { ArticleDetailsSchema } from '@/entities/Article';
 import { CounterSchema } from '@/entities/Counter';
 import { UserSchema } from '@/entities/User';
 import { AuthSchema } from '@/features/AuthByUsername';
@@ -11,6 +12,7 @@ export type StateSchema = {
   // async
   auth?: AuthSchema;
   profile?: ProfileSchema;
+  articleDetails?: ArticleDetailsSchema;
 };
 
 export type StateSchemaKeys = keyof StateSchema;
