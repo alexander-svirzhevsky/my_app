@@ -4,6 +4,8 @@ import { Comment } from '../../model/types/comments';
 import { Avatar } from '@/shared/ui/Avatar';
 import { Text } from '@/shared/ui/Text';
 import { Skeleton } from '@/shared/ui/Skeleton';
+import { AppLink } from '@/shared/ui/AppLink';
+import { Routes } from '@/shared/constant/routes';
 
 type CommentCardProps = {
   className?: string;
@@ -38,13 +40,15 @@ export const CommentCard = ({ className, comment, isLoading }: CommentCardProps)
   return (
     <div className={classNames(cn['CommentCard'], {}, [className])}>
       <div className={cn.header}>
-        {comment.user.avatar && (
-          <Avatar
-            size={30}
-            src={comment.user.avatar}
-          />
-        )}
-        <Text title={comment.user.username} />
+        <AppLink to={`${Routes.Profile}/${comment.user.id}`}>
+          {comment.user.avatar && (
+            <Avatar
+              size={30}
+              src={comment.user.avatar}
+            />
+          )}
+          <Text title={comment.user.username} />
+        </AppLink>
       </div>
       <Text
         className={cn.text}

@@ -1,0 +1,7 @@
+.AddNewComment {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+  border: 1px solid var(--primary-color);
+  margin-bottom: 10px;
+}

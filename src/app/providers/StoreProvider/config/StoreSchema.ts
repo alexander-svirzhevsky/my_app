@@ -1,6 +1,7 @@
 import { ArticleDetailsSchema } from '@/entities/Article';
 import { CounterSchema } from '@/entities/Counter';
 import { UserSchema } from '@/entities/User';
+import { AddNewCommentSchema } from '@/features/AddNewComment';
 import { ArticleCommentsListSchema } from '@/features/ArticleCommentsList';
 import { AuthSchema } from '@/features/AuthByUsername';
 import { ProfileSchema } from '@/features/EditableProfileCard';
@@ -15,6 +16,7 @@ export type StateSchema = {
   profile?: ProfileSchema;
   articleDetails?: ArticleDetailsSchema;
   articleDetailsComments?: ArticleCommentsListSchema;
+  addNewComment?: AddNewCommentSchema;
 };
 
 export type StateSchemaKeys = keyof StateSchema;

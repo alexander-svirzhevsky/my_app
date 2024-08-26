@@ -9,6 +9,7 @@ import {
 } from '@/shared/lib/dynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
 const initialReducers: ReducersList = {
   profile: profileReducer,
@@ -16,9 +17,12 @@ const initialReducers: ReducersList = {
 
 export const Profile = () => {
   const dispatch = useAppDispatch();
+  const { id } = useParams<{ id: string }>();
 
   useEffect(() => {
-    dispatch(getProfileData());
+    if (id) {
+      dispatch(getProfileData(id));
+    }
   }, []);
 
   return (

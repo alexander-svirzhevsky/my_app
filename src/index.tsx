@@ -37,7 +37,7 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: Routes.Profile,
+        path: `${Routes.Profile}/:id`,
         element: (
           <GuardedRoute>
             <Suspense fallback={<LoaderPage />}>

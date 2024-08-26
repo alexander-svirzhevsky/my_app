@@ -1,6 +1,9 @@
 .appLink {
   color: var(--text-color);
   text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .appLink:hover {

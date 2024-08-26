@@ -10,6 +10,7 @@ export type ProfileType = {
   city?: string;
   username?: string;
   avatar?: string;
+  id?: string;
 };
 
 export type ProfileSchema = {
