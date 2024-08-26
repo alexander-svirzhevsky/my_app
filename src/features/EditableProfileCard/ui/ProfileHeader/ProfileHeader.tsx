@@ -8,8 +8,8 @@ import { useSelector } from 'react-redux';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
 import { putProfileData } from '../../model/services/putProfileData/putProfileData';
 import { getUserAuthData } from '@/entities/User';
-import { getProfileData } from '../../model/services/getProfileData/getProfileData';
 import { getProfileValues } from '../../model/selectors/getProfileValues/getProfileValues';
+import { useEffect } from 'react';
 
 type ProfileHeaderProps = {
   className?: string;
@@ -34,6 +34,10 @@ export const ProfileHeader = ({ className }: ProfileHeaderProps) => {
   const onSaveHandler = () => {
     dispatch(putProfileData(profileData.id));
   };
+
+  useEffect(() => {
+    dispatch(profileActions.setReadonly(true));
+  }, []);
 
   return (
     <div className={classNames(cn['ProfileHeader'], {}, [className])}>

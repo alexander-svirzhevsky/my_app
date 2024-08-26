@@ -47,6 +47,12 @@
       "userId": "1",
       "text": "coolies",
       "id": "dvnuY8C"
+    },
+    {
+      "articleId": "1",
+      "userId": "3",
+      "text": "I'm Luke",
+      "id": "rdQgDjd"
     }
   ],
   "users": [
@@ -78,7 +84,7 @@
       "currency": "EUR",
       "country": "Belarus",
       "city": "Brest",
-      "username": "Alex",
+      "username": "Alex111",
       "avatar": "https://avatar.iran.liara.run/public/10"
     },
     {

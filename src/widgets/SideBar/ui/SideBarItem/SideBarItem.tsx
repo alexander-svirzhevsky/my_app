@@ -1,10 +1,10 @@
 import cn from './SideBarItem.module.css';
 import { AppLink } from '@/shared/ui/AppLink';
-import { SideBarItemType } from '../../model/items';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { memo } from 'react';
 import { useSelector } from 'react-redux';
 import { getUserAuthData } from '@/entities/User';
+import { SideBarItemType } from '../../model/types/sideBar';
 
 type SideBarItemProps = {
   item: SideBarItemType;

@@ -4,8 +4,9 @@ import { useMemo, useState } from 'react';
 import { ToggleThemeButton } from '@/widgets/ToggleThemeButton';
 import { LangToggler } from '@/widgets/LangToggler';
 import { Button } from '@/shared/ui/Button';
-import { sideBarItemsList } from '../../model/items';
 import { SideBarItem } from '../SideBarItem/SideBarItem';
+import { useSelector } from 'react-redux';
+import { getSideBarItems } from '../../model/selectors/getSideBarItems';
 
 type SideBarProps = {
   className?: string;
@@ -13,6 +14,7 @@ type SideBarProps = {
 
 export const SideBar = ({ className }: SideBarProps) => {
   const [collapsed, setCollapsed] = useState(false);
+  const sideBarItemsList = useSelector(getSideBarItems);
 
   const sideBarItems = useMemo(() => {
     return sideBarItemsList.map((item) => (
@@ -22,7 +24,7 @@ export const SideBar = ({ className }: SideBarProps) => {
         item={item}
       />
     ));
-  }, [collapsed]);
+  }, [collapsed, sideBarItemsList]);
 
   const onToggle = () => {
     setCollapsed((prev) => !prev);
