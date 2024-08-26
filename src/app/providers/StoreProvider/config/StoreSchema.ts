@@ -1,6 +1,7 @@
 import { ArticleDetailsSchema } from '@/entities/Article';
 import { CounterSchema } from '@/entities/Counter';
 import { UserSchema } from '@/entities/User';
+import { ArticleCommentsListSchema } from '@/features/ArticleCommentsList';
 import { AuthSchema } from '@/features/AuthByUsername';
 import { ProfileSchema } from '@/features/EditableProfileCard';
 import { Action, EnhancedStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
@@ -13,6 +14,7 @@ export type StateSchema = {
   auth?: AuthSchema;
   profile?: ProfileSchema;
   articleDetails?: ArticleDetailsSchema;
+  articleDetailsComments?: ArticleCommentsListSchema;
 };
 
 export type StateSchemaKeys = keyof StateSchema;

@@ -1,12 +1,19 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cn from './ArticleDetails.module.css';
-import { DynamicModuleLoader, ReducersList } from '@/shared/lib/dynamicModuleLoader/DynamicModuleLoader';
+import {
+  DynamicModuleLoader,
+  ReducersList,
+} from '@/shared/lib/dynamicModuleLoader/DynamicModuleLoader';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { memo, useCallback, useEffect } from 'react';
 import { getArticleDetailsById } from '../../model/services/getArticleDetailsById/getArticleDetailsById';
 import { useSelector } from 'react-redux';
-import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from '../../model/selectors/articleDetails';
+import {
+  getArticleDetailsData,
+  getArticleDetailsError,
+  getArticleDetailsIsLoading,
+} from '../../model/selectors/articleDetails';
 import { Article, ArticleBlock, ArticleBlockType } from '../../model/types/arctilce';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
@@ -39,6 +46,7 @@ export const ArticleDetails = memo(({ className, articleId }: ArticleDetailsProp
       case ArticleBlockType.CODE:
         return (
           <ArticleCodeBlockComponent
+            key={block.id}
             block={block}
             className={cn.block}
           />
@@ -46,6 +54,7 @@ export const ArticleDetails = memo(({ className, articleId }: ArticleDetailsProp
       case ArticleBlockType.IMAGE:
         return (
           <ArticleImageBlockComponent
+            key={block.id}
             block={block}
             className={cn.block}
           />
@@ -53,6 +62,7 @@ export const ArticleDetails = memo(({ className, articleId }: ArticleDetailsProp
       case ArticleBlockType.TEXT:
         return (
           <ArticleTextBlockComponent
+            key={block.id}
             className={cn.block}
             block={block}
           />

@@ -1,6 +1,6 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cn from './Code.module.css';
-import { ReactNode, useCallback } from 'react';
+import { useCallback } from 'react';
 import { Button, ButtonTheme } from '../../Button';
 
 type CodeProps = {
