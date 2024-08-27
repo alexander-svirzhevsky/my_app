@@ -1,0 +1,14 @@
+.ArticleList {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ArticleList.BIG {
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+.card {
+  margin-right: 30px;
+  margin-bottom: 30px;
+}
