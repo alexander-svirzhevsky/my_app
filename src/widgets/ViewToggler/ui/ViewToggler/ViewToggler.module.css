@@ -1,0 +1,11 @@
+.ViewToggler {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  justify-content: end;
+}
+
+.active {
+  color: var(--secondary-color);
+}

@@ -5,6 +5,7 @@ import { AddNewCommentSchema } from '@/features/AddNewComment';
 import { ArticleCommentsListSchema } from '@/features/ArticleCommentsList';
 import { AuthSchema } from '@/features/AuthByUsername';
 import { ProfileSchema } from '@/features/EditableProfileCard';
+import { ArticlePageSchema } from '@/pages/ArticlesPage/model/types/articlePageSchema';
 import { Action, EnhancedStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
 
@@ -17,6 +18,7 @@ export type StateSchema = {
   articleDetails?: ArticleDetailsSchema;
   articleDetailsComments?: ArticleCommentsListSchema;
   addNewComment?: AddNewCommentSchema;
+  articlePage?: ArticlePageSchema;
 };
 
 export type StateSchemaKeys = keyof StateSchema;
