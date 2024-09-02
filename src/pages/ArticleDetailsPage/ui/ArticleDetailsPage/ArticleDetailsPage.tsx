@@ -10,7 +10,7 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { addNewCommentForArticle } from '../../model/services/addNewCommentForArticle';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { Routes } from '@/shared/constant/routes';
-import { Page } from '@/shared/ui/Page';
+import { Page } from '@/widgets/Page';
 
 type ArticleDetailsPageProps = {
   className?: string;

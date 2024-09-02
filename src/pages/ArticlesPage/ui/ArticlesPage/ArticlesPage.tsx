@@ -19,7 +19,7 @@ import {
   getArticlePageView,
 } from '../../model/selectors/articlesPageSelectors';
 import { ViewToggler } from '@/widgets/ViewToggler';
-import { Page } from '@/shared/ui/Page';
+import { Page } from '@/widgets/Page';
 import { getNexArticlesPage } from '../../model/services/getNexArticlesPage/getNexArticlesPage';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 

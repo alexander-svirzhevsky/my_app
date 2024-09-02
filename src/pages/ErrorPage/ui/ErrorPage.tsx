@@ -2,7 +2,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import cn from './ErrorPage.module.css';
 import { useTranslation } from 'react-i18next';
 import { Button } from '@/shared/ui/Button';
-import { Page } from '@/shared/ui/Page';
+import { Page } from '@/widgets/Page';
 
 type ErrorPageProps = {
   className?: string;

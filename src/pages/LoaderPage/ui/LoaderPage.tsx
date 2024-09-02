@@ -1,7 +1,7 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cn from './LoaderPage.module.css';
 import { Loader } from '@/shared/ui/Loader/ui/Loader';
-import { Page } from '@/shared/ui/Page';
+import { Page } from '@/widgets/Page';
 
 type LoaderPageProps = {
   className?: string;

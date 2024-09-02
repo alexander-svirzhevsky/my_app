@@ -8,7 +8,7 @@ import {
   ReducersList,
 } from '@/shared/lib/dynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Page } from '@/shared/ui/Page';
+import { Page } from '@/widgets/Page';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 

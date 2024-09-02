@@ -5,6 +5,7 @@ import { AddNewCommentSchema } from '@/features/AddNewComment';
 import { ArticleCommentsListSchema } from '@/features/ArticleCommentsList';
 import { AuthSchema } from '@/features/AuthByUsername';
 import { ProfileSchema } from '@/features/EditableProfileCard';
+import { ScrollSaveSchema } from '@/features/ScrollSave';
 import { ArticlePageSchema } from '@/pages/ArticlesPage/model/types/articlePageSchema';
 import { Action, EnhancedStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
@@ -12,6 +13,7 @@ import { AxiosInstance } from 'axios';
 export type StateSchema = {
   counter: CounterSchema;
   user: UserSchema;
+  scrollSave: ScrollSaveSchema;
   // async
   auth?: AuthSchema;
   profile?: ProfileSchema;

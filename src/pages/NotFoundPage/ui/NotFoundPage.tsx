@@ -1,6 +1,6 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cn from './NotFoundPage.module.css';
-import { Page } from '@/shared/ui/Page';
+import { Page } from '@/widgets/Page';
 
 type NotFoundPageProps = {
   className?: string;

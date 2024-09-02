@@ -1,7 +1,7 @@
 import { Counter } from '@/entities/Counter';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { Modal } from '@/shared/ui/Modal';
-import { Page } from '@/shared/ui/Page';
+import { Page } from '@/widgets/Page';
 import { Portal } from '@/shared/ui/Portal';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
