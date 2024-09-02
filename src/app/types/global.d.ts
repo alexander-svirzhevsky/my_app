@@ -29,3 +29,7 @@ declare type DeepPartial<T> = unknown extends T
             : DeepPartial<T[P]>;
       }
     : T;
+
+type OptionalRecord<K extends keyof any, T> = {
+  [P in K]?: T;
+};

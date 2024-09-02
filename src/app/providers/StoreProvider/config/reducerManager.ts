@@ -12,7 +12,6 @@ export function createReducerManager(
 
   return {
     getReducerMap: () => reducers,
-
     reduce: (state: StateSchema, action: Action) => {
       if (keysToRemove.length > 0) {
         state = { ...state };
