@@ -6,4 +6,8 @@ export interface ArticlePageSchema {
   ids: string[];
   entities: Record<string, Article>;
   view: ArticleView;
+
+  page: number;
+  limit?: number;
+  hasMore: boolean;
 }

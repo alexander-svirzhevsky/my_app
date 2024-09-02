@@ -34,13 +34,13 @@ button {
   display: flex;
 }
 
-.main-content {
+/* .main-content {
   flex-grow: 1;
   height: calc(100vh - var(--navbar-height));
   overflow-y: scroll;
   padding: 20px 30px;
   width: 100%;
-}
+} */
 
 *::-webkit-scrollbar {
   width: 6px;

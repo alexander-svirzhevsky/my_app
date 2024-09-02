@@ -17,10 +17,14 @@ import { getArticlesList } from '../../model/services/getArticlesList/getArticle
 import { useSelector } from 'react-redux';
 import {
   getArticlePageError,
+  getArticlePageHasMore,
   getArticlePageIsLoading,
+  getArticlePageNum,
   getArticlePageView,
 } from '../../model/selectors/articlesPageSelectors';
 import { ViewToggler } from '@/widgets/ViewToggler';
+import { Page } from '@/shared/ui/Page';
+import { getNexArticlesPage } from '../../model/services/getNexArticlesPage/getNexArticlesPage';
 
 type ArticlesPageProps = {
   className?: string;
@@ -31,19 +35,29 @@ const reducers: ReducersList = {
 };
 
 export const ArticlesPage = ({ className }: ArticlesPageProps) => {
-  const dispath = useAppDispatch();
+  const dispatch = useAppDispatch();
   const articles = useSelector(getArticles.selectAll);
   const isLoading = useSelector(getArticlePageIsLoading);
   const error = useSelector(getArticlePageError);
   const view = useSelector(getArticlePageView);
+  const page = useSelector(getArticlePageNum);
+  const hasMore = useSelector(getArticlePageHasMore);
 
   const onViewChange = (newView: ArticleView) => {
-    dispath(articlePageActions.setView(newView));
+    dispatch(articlePageActions.setView(newView));
+  };
+
+  const onLoadNextPart = () => {
+    dispatch(getNexArticlesPage());
   };
 
   useEffect(() => {
-    dispath(getArticlesList());
-    dispath(articlePageActions.initView());
+    dispatch(articlePageActions.initState());
+    dispatch(
+      getArticlesList({
+        page: 1,
+      }),
+    );
   }, []);
 
   return (
@@ -52,17 +66,19 @@ export const ArticlesPage = ({ className }: ArticlesPageProps) => {
       removeAfterUnmount
       name='articlePage'
     >
-      <div className={classNames(cn['ArticlesPage'], {}, [className])}>
-        <ViewToggler
-          onViewChange={onViewChange}
-          currentView={view}
-        />
-        <ArticleList
-          isLoading={isLoading}
-          view={view}
-          articles={articles}
-        />
-      </div>
+      <Page onScrollEnd={onLoadNextPart}>
+        <div className={classNames(cn['ArticlesPage'], {}, [className])}>
+          <ViewToggler
+            onViewChange={onViewChange}
+            currentView={view}
+          />
+          <ArticleList
+            isLoading={isLoading}
+            view={view}
+            articles={articles}
+          />
+        </div>
+      </Page>
     </DynamicModuleLoader>
   );
 };

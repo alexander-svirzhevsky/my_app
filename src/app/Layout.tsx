@@ -19,7 +19,7 @@ export const Layout = () => {
       <Navbar />
       <div className='main-page'>
         <SideBar />
-        <div className='main-content'>{mounted && <Outlet />}</div>
+        {mounted && <Outlet />}
       </div>
     </div>
   );

@@ -10,6 +10,7 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { addNewCommentForArticle } from '../../model/services/addNewCommentForArticle';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { Routes } from '@/shared/constant/routes';
+import { Page } from '@/shared/ui/Page';
 
 type ArticleDetailsPageProps = {
   className?: string;
@@ -29,20 +30,22 @@ export const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   }, []);
 
   return (
-    <div className={classNames(cn['ArticleDetailsPage'], {}, [className])}>
-      <Button
-        theme={ButtonTheme.PRIMARY}
-        onClick={onBackToList}
-      >
-        Назад к списку
-      </Button>
-      <ArticleDetails articleId={id} />
-      <Text
-        title='Comments'
-        className={cn.comments}
-      />
-      <AddNewComment onSubmitText={onSubmitText} />
-      <ArticleCommentsList />
-    </div>
+    <Page>
+      <div className={classNames(cn['ArticleDetailsPage'], {}, [className])}>
+        <Button
+          theme={ButtonTheme.PRIMARY}
+          onClick={onBackToList}
+        >
+          Назад к списку
+        </Button>
+        <ArticleDetails articleId={id} />
+        <Text
+          title='Comments'
+          className={cn.comments}
+        />
+        <AddNewComment onSubmitText={onSubmitText} />
+        <ArticleCommentsList />
+      </div>
+    </Page>
   );
 };

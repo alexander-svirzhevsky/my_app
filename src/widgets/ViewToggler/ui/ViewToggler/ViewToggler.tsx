@@ -33,7 +33,10 @@ export const ViewToggler = ({ className, currentView, onViewChange }: ViewToggle
   return (
     <div className={classNames(cn['ViewToggler'], {}, [className])}>
       {views.map((view) => (
-        <Button onClick={onViewToggle(view.view)}>
+        <Button
+          onClick={onViewToggle(view.view)}
+          key={view.view}
+        >
           <Icon
             Svg={view.icon}
             className={classNames('', {

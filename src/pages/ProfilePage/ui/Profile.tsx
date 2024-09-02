@@ -8,6 +8,7 @@ import {
   ReducersList,
 } from '@/shared/lib/dynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { Page } from '@/shared/ui/Page';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
@@ -26,11 +27,13 @@ export const Profile = () => {
   }, []);
 
   return (
-    <DynamicModuleLoader
-      name='profile'
-      reducers={initialReducers}
-    >
-      <EditableProfileCard />
-    </DynamicModuleLoader>
+    <Page>
+      <DynamicModuleLoader
+        name='profile'
+        reducers={initialReducers}
+      >
+        <EditableProfileCard />
+      </DynamicModuleLoader>
+    </Page>
   );
 };
