@@ -11,7 +11,7 @@ import { Text } from '@/shared/ui/Text';
 import { Icon } from '@/shared/ui/Icon/Icon';
 import EyeIcon from '@/shared/assets/eye.svg';
 import { Card } from '@/shared/ui/Card';
-import { useHover } from '@/shared/lib/useHover/useHover';
+import { useHover } from '@/shared/lib/hooks/useHover/useHover';
 import { Avatar } from '@/shared/ui/Avatar';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';

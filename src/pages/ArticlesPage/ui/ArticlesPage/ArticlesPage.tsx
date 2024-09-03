@@ -22,6 +22,8 @@ import { ViewToggler } from '@/widgets/ViewToggler';
 import { Page } from '@/widgets/Page';
 import { getNexArticlesPage } from '../../model/services/getNexArticlesPage/getNexArticlesPage';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
+import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
+import { useSearchParams } from 'react-router-dom';
 
 type ArticlesPageProps = {
   className?: string;
@@ -36,17 +38,14 @@ export const ArticlesPage = ({ className }: ArticlesPageProps) => {
   const articles = useSelector(getArticles.selectAll);
   const isLoading = useSelector(getArticlePageIsLoading);
   const view = useSelector(getArticlePageView);
-
-  const onViewChange = (newView: ArticleView) => {
-    dispatch(articlePageActions.setView(newView));
-  };
+  const [searchParams] = useSearchParams();
 
   const onLoadNextPart = () => {
     dispatch(getNexArticlesPage());
   };
 
   useEffect(() => {
-    dispatch(initArticlesPage());
+    dispatch(initArticlesPage(searchParams));
   }, []);
 
   return (
@@ -56,10 +55,7 @@ export const ArticlesPage = ({ className }: ArticlesPageProps) => {
     >
       <Page onScrollEnd={onLoadNextPart}>
         <div className={classNames(cn['ArticlesPage'], {}, [className])}>
-          <ViewToggler
-            onViewChange={onViewChange}
-            currentView={view}
-          />
+          <ArticlesPageFilters />
           <ArticleList
             isLoading={isLoading}
             view={view}

@@ -4,6 +4,7 @@ import { Article, ArticleView } from '../../model/types/arctilce';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { memo } from 'react';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
+import { Text } from '@/shared/ui/Text';
 
 type ArticleListProps = {
   className?: string;
@@ -23,14 +24,6 @@ const getSkeletons = (view: ArticleView) =>
 
 export const ArticleList = memo(
   ({ className, articles, view = ArticleView.SMALL, isLoading }: ArticleListProps) => {
-    // if (isLoading) {
-    //   return (
-    //     <div className={classNames(cn['ArticleList'], {}, [className, cn[view]])}>
-    //       {getSkeletons(view)}
-    //     </div>
-    //   );
-    // }
-
     const renderArticle = (article: Article) => {
       return (
         <ArticleListItem
@@ -41,6 +34,14 @@ export const ArticleList = memo(
         />
       );
     };
+
+    if (!articles.length && !isLoading) {
+      return (
+        <div className={classNames(cn['ArticleList'], {}, [className, cn[view]])}>
+          <Text title='There is no articles' />
+        </div>
+      );
+    }
 
     return (
       <div className={classNames(cn['ArticleList'], {}, [className, cn[view]])}>

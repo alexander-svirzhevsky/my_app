@@ -8,7 +8,7 @@ import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { StateSchema } from '@/app/providers/StoreProvider';
 import { getScrollByPath } from '@/features/ScrollSave/model/selectors/scrollSave';
-import { useThrottle } from '@/shared/lib/useThrottle/useThrottle';
+import { useThrottle } from '@/shared/lib/hooks/useThrottle/useThrottle';
 
 type PageProps = {
   className?: string;
@@ -50,7 +50,12 @@ export const Page = ({ className, children, onScrollEnd }: PageProps) => {
       onScroll={onScroll}
     >
       {children}
-      <div ref={triggerRef} />
+      {onScrollEnd ? (
+        <div
+          className={cn.trigger}
+          ref={triggerRef}
+        />
+      ) : null}
     </div>
   );
 };
