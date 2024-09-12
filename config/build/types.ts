@@ -3,6 +3,8 @@ export type BuildPaths = {
   html: string;
   output: string;
   src: string;
+  locales: string;
+  buildLocales: string;
 };
 
 export type BuildMode = 'production' | 'development';

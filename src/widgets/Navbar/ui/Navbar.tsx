@@ -10,6 +10,8 @@ import { useTranslation } from 'react-i18next';
 import { LoginModal } from '@/features/AuthByUsername';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserAuthData, userActions } from '@/entities/User';
+import { DropDown } from '@/shared/ui/DropDown/DropDown';
+import { Avatar } from '@/shared/ui/Avatar';
 
 type NavbarProps = {
   className?: string;
@@ -24,7 +26,6 @@ export const Navbar = ({ className, children }: NavbarProps) => {
   const { t } = useTranslation('main');
 
   const onLogout = () => {
-    // setIsOpened(false);
     dispatch(userActions.logout());
   };
 
@@ -32,7 +33,20 @@ export const Navbar = ({ className, children }: NavbarProps) => {
     return (
       <div className={classNames(cn['navbar'], {}, [className])}>
         <div className={classNames(cn['links'])}>
-          <Button onClick={onLogout}>{t('logout')}</Button>
+          <DropDown
+            menuPosition='bottom end'
+            trigger={<Avatar src={authData.avatar} />}
+            dropDownItems={[
+              {
+                content: t('logout'),
+                onClick: onLogout,
+              },
+              {
+                content: 'Profile',
+                to: `${Routes.Profile}/${authData.id}`,
+              },
+            ]}
+          />
         </div>
       </div>
     );

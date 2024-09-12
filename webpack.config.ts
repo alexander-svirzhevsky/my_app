@@ -9,6 +9,8 @@ export default (env: EnvVariables) => {
     html: path.resolve(__dirname, 'public', 'index.html'),
     output: path.resolve(__dirname, 'build'),
     src: path.resolve(__dirname, 'src'),
+    locales: path.resolve(__dirname, 'public', 'locales'),
+    buildLocales: path.resolve(__dirname, 'build', 'locales'),
   };
 
   const apiUrl = env.apiUrl || 'http://localhost:8000';
