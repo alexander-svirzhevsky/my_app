@@ -50,14 +50,14 @@ export const useAsyncLibs = () => {
 
 // In component - wrap in ContextProvider and...
 
-export const DrawerComponent = memo(({}: {}) => {
+const DrawerComponent = memo(({}: {}) => {
   const { SomeLib } = useAsyncLibs();
 
   // using SomeLib.func(...)
   return '';
 });
 
-export const Drawer = memo((props) => {
+const DrawerAsync = memo((props) => {
   const { isLoaded } = useAsyncLibs();
 
   if (!isLoaded) {
@@ -66,3 +66,11 @@ export const Drawer = memo((props) => {
 
   return <DrawerComponent {...props} />;
 });
+
+export const Drawer = () => {
+  return (
+    <AsyncLibsProvider>
+      <DrawerAsync />
+    </AsyncLibsProvider>
+  );
+};

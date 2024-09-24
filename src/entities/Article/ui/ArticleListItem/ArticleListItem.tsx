@@ -17,6 +17,8 @@ import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { useNavigate } from 'react-router-dom';
 import { Routes } from '@/shared/constant/routes';
+import { AppImage } from '@/shared/ui/AppImage/AppImage';
+import { Skeleton } from '@/shared/ui/Skeleton';
 
 type ArticleListItemProps = {
   className?: string;
@@ -78,10 +80,16 @@ export const ArticleListItem = memo(({ className, article, view }: ArticleListIt
             className={cn.title}
           />
           {types}
-          <img
+          <AppImage
             src={article.img}
             className={cn.img}
             alt={article.title}
+            fallback={
+              <Skeleton
+                width='100%'
+                height={250}
+              />
+            }
           />
           {textBlock && (
             <ArticleTextBlockComponent
